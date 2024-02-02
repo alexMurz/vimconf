@@ -7,30 +7,46 @@ require 'mason-lspconfig'.setup({
 	},
 })
 
+local function template(tmpl)
+    return function(table)
+        local result = {}
+        for key, value in pairs(tmpl) do
+            result[key] = value
+        end
+
+        if table then
+            for key, value in pairs(table) do
+                result[key] = value
+            end
+        end
+        return result
+    end
+end
+
 -- Keymaps
 lspz.on_attach(function(client, bufnr)
-	local opts = { buffer = bufnr, remap = false }
+	local opts = template { buffer = bufnr, remap = false }
 	-- Jump to definition
-	vim.keymap.set('n', '<leader>ld', function() vim.lsp.buf.definition() end, opts)
+	vim.keymap.set('n', '<leader>ld', function() vim.lsp.buf.definition() end, opts { desc = '[l]sp [d]efinitions' })
 	-- Hover
-	vim.keymap.set('n', '<leader>ll', function() vim.lsp.buf.hover() end, opts)
-	vim.keymap.set({'n', 'i'}, '<C-l>', function() vim.lsp.buf.hover() end, opts)
+	vim.keymap.set('n', '<leader>ll', function() vim.lsp.buf.hover() end, opts { desc = '[l]sp hover' })
+	vim.keymap.set({'n', 'i'}, '<C-l>', function() vim.lsp.buf.hover() end, opts { desc = 'Lsp Hover' })
 	-- Diagnostics (Show warnings) 
-	vim.keymap.set("n", "<leader>lw", function() vim.diagnostic.open_float() end, opts)
+	vim.keymap.set("n", "<leader>lw", function() vim.diagnostic.open_float() end, opts { desc = '[l]sp [w]arnings' })
 
 	-- Show code actions
-	vim.keymap.set("n", "<leader>la", function() vim.lsp.buf.code_action() end, opts)
+	vim.keymap.set("n", "<leader>la", function() vim.lsp.buf.code_action() end, opts { desc = '[l]sp [a]ctions' })
 
 	-- Show references (like in intellij C-b
-  	vim.keymap.set("n", "<leader>lb", function() vim.lsp.buf.references() end, opts)
-  	vim.keymap.set("n", "<C-b>", function() vim.lsp.buf.references() end, opts)
+  	vim.keymap.set("n", "<leader>lb", function() vim.lsp.buf.references() end, opts { desc = '[l]sp references' })
+  	vim.keymap.set("n", "<C-b>", function() vim.lsp.buf.references() end, opts { desc = 'Lsp References' })
 
 	-- Rename symbol under cursor
-  	vim.keymap.set("n", "<leader>lr", function() vim.lsp.buf.rename() end, opts)
+  	vim.keymap.set("n", "<leader>lr", function() vim.lsp.buf.rename() end, opts { desc = '[l]sp [r]ename' })
 
 	-- Signature help
-	vim.keymap.set("n", "<leader>lp", function() vim.lsp.buf.signature_help() end, opts)
-	vim.keymap.set({"n", "i"}, "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+	vim.keymap.set("n", "<leader>lp", function() vim.lsp.buf.signature_help() end, opts { desc = '[l]sp signature' })
+	vim.keymap.set({"n", "i"}, "<C-h>", function() vim.lsp.buf.signature_help() end, opts { desc = 'Lsp Signature' })
 
 end)
 
