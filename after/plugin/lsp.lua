@@ -23,6 +23,18 @@ local function template(tmpl)
     end
 end
 
+require('flutter-tools').setup {
+    lsp = {
+        on_attach = function(client, bufnr)
+            local opts = template { buffer = bufnr, remap = false }
+            vim.keymap.set('n', '<leader>pb', function()
+                require('telescope').extensions.flutter.commands()
+            end, opts { desc = '[p]roject [b]uild' })
+            print("attach")
+        end,
+    }
+}
+
 -- Keymaps
 lspz.on_attach(function(client, bufnr)
     local opts = template { buffer = bufnr, remap = false }

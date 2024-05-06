@@ -1,4 +1,5 @@
-require 'telescope'.setup({
+local telescope = require 'telescope'
+telescope.setup({
     vimgrep_arguments = {
       'rg',
       '--color=never',
@@ -18,7 +19,8 @@ require 'telescope'.setup({
         }
     }
 })
-pcall(require('telescope').load_extension, 'fzf')
+pcall(telescope.load_extension, 'fzf')
+pcall(telescope.load_extension, "flutter")
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "[F]ind in [F]iles" })
