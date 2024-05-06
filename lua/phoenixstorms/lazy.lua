@@ -48,6 +48,8 @@ require('lazy').setup({
             -- refer to the configuration section below
         },
     },
+    -- Navigation
+    { 'ThePrimeagen/harpoon' },
     -- LSP
     { 'VonHeikemen/lsp-zero.nvim',        branch = 'v3.x' },
     { 'williamboman/mason.nvim' },
@@ -56,6 +58,7 @@ require('lazy').setup({
     { 'hrsh7th/cmp-nvim-lsp' },
     { 'hrsh7th/nvim-cmp' },
     { 'L3MON4D3/LuaSnip' },
+    -- Flutter
     {
         'akinsho/flutter-tools.nvim',
         lazy = false,
