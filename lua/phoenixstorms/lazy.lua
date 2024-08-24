@@ -65,4 +65,8 @@ require('lazy').setup({
         dependencies = { 'nvim-lua/plenary.nvim' },
         config = true,
     },
+    {
+        'Exafunction/codeium.vim',
+        event = 'BufEnter'
+    }
 })
