@@ -18,6 +18,8 @@ vim.keymap.set('v', 'K', ':m \'<-2<CR>gv=gv', { desc = "Move selected lines up" 
 -- Like LSP rename, but when LSP is not available
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "[S]ubstitute word under cursor" })
 
+vim.keymap.set("n", "<leader>a", [[ggVG]], { desc = "Select all" })
+
 vim.opt.whichwrap:append "<>[]hl"
 
 
