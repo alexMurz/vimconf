@@ -22,7 +22,7 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 local build_bootstrap = function()
     local f = vim.fn.input("Enter build command: ")
     local command = function()
-        vim.api.nvim_command('split term://'..f)
+        vim.api.nvim_exec2('split term://'..f, {})
     end
     vim.keymap.set('n', '<leader>pb', command, { desc = '[p]roject [b]uild (' .. f .. ')' })
 end
