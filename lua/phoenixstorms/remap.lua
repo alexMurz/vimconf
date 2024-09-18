@@ -29,6 +29,44 @@ end
 
 vim.keymap.set('n', '<leader>pb', build_bootstrap, { desc = '[p]roject [b]uild (bootstrap)' })
 vim.keymap.set('n', '<leader>pB', build_bootstrap, { desc = '[p]roject [b]uild (bootstrap)' })
+vim.keymap.set("n", "<leader>a", [[ggVG]], { desc = "Select all" })
+
+vim.opt.whichwrap:append "<>[]hl"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 8307923caa025d930fcfa7dbb3933023a6400a5c
 
 vim.opt.whichwrap:append "<>[]hl"
 
