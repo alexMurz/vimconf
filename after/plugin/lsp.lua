@@ -7,6 +7,17 @@ require 'mason-lspconfig'.setup({
     },
 })
 
+-- zig config
+require 'lspconfig'.zls.setup{
+    cmd = { "zls" },
+}
+
+-- wgsl config
+require 'lspconfig'.wgsl_analyzer.setup{
+    cmd = { "wgsl-analyzer" },
+    filetypes = { "wgsl" },
+}
+
 local function template(tmpl)
     return function(table)
         local result = {}

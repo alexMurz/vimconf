@@ -22,9 +22,7 @@ require('lazy').setup({
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
     -- Color theme
-    {
-        'rose-pine/neovim', name = 'rose-pine'
-    },
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
     -- Syntax highlight
     {
         'nvim-treesitter/nvim-treesitter',

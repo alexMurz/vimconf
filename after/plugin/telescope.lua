@@ -35,5 +35,5 @@ vim.keymap.set('n', '<leader>?', function()
 end, { desc = "[?] Find in current buffer" })
 
 vim.keymap.set('n', '<leader>ft', require('telescope.builtin').builtin, { desc = '[F]ind in [T]elescope' })
-vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = '[F]ind in [H]elp' })
+vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = '[F]ind in [H]elp tags' })
 

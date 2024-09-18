@@ -18,40 +18,17 @@ vim.keymap.set('v', 'K', ':m \'<-2<CR>gv=gv', { desc = "Move selected lines up" 
 -- Like LSP rename, but when LSP is not available
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "[S]ubstitute word under cursor" })
 
+-- bootstrap for build command on <leader>pb
+local build_bootstrap = function()
+    local f = vim.fn.input("Enter build command: ")
+    local command = function()
+        vim.api.nvim_command('split term://'..f)
+    end
+    vim.keymap.set('n', '<leader>pb', command, { desc = '[p]roject [b]uild (' .. f .. ')' })
+end
+
+vim.keymap.set('n', '<leader>pb', build_bootstrap, { desc = '[p]roject [b]uild (bootstrap)' })
+vim.keymap.set('n', '<leader>pB', build_bootstrap, { desc = '[p]roject [b]uild (bootstrap)' })
+
 vim.opt.whichwrap:append "<>[]hl"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
